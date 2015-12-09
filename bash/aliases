@@ -1,0 +1,28 @@
+#! /bin/bash
+
+# Ubuntu : cleanup older kernels
+alias kernel-cleanup="sudo apt-get remove --purge $(dpkg -l 'linux-image-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d')"
+
+# grep output from `find`
+alias xgrep="xargs -d '\n' grep --color"
+
+# GIT aliases
+alias b='git branch'
+alias s='git status'
+alias r='git rebase -i origin/master'
+alias p='git pull'
+alias gm='git checkout master'
+alias gc='git checkout '
+alias gopt='cd /opt/stack'
+alias d1='git diff HEAD^1'
+alias d2='git diff HEAD^2'
+alias d3='git diff HEAD^3'
+alias d4='git diff HEAD^4'
+alias d5='git diff HEAD^5'
+alias d6='git diff HEAD^6'
+alias glo='git log --oneline | head'
+alias gl='git log'
+alias f='git fetch origin'
+alias fandr='git fetch origin && git rebase -i master'
+alias glog='git log --oneline --graph --decorate --all'
+
